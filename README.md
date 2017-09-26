@@ -88,7 +88,7 @@ If m2e is not there, just follow the install process here: http://eclipse.org/m2
 
 1) In the command line
 ```
-git clone https://github.com/kgvprasad/newpetclinicapp.git
+git clone https://github.com/lakshmojirao999/myPetclinic.git
 ```
 2) Inside Eclipse
 ```
