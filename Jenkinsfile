@@ -24,13 +24,13 @@ pipeline {
             }
         }*/
 	stage('Docker Build'){
-         agent docker
+         agent none
 	 steps{
 	 sh 'docker build -t zelar/petclinic:latest .'
 	 }
 	}
         stage('Docker Push'){
-         agent docker
+         agent none
          steps{
 	  withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
 	    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
