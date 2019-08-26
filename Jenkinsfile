@@ -16,5 +16,12 @@ pipeline {
                 sh 'mvn test'
             }
         }
+        stage('Deploy'){
+        set +x
+        echo "Deploying to Tomcat "
+        curl -s --upload-file target/petclinic.war "http://tomcat:tomcat@192.168.0.34:8080/manager/text/deploy?path=/petclinic&update=true&tag=${BUILD_TAG}"
+
+        }
+
     }
 }
