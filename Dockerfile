@@ -23,6 +23,10 @@ RUN curl -jkSL -o /tmp/apache-tomcat.tar.gz http://archive.apache.org/dist/tomca
 RUN apk del curl && \
     rm -rf /tmp/* /var/cache/apk/*
 
+RUN wget -P /tmp/ https://get.docker.com/builds/Linux/x86_64/docker-1.12.6.tgz && \
+    tar -xvf /tmp/docker-1.12.6.tgz --directory /tmp/ && \
+    mv /tmp/docker/docker /usr/local/bin
+
 ADD ./target/*.war $CATALINA_HOME/webapps/
 
 EXPOSE 8080

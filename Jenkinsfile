@@ -25,7 +25,7 @@ pipeline {
         }*/
 	stage('Docker Build'){
          steps{
-	 sh 'docker image -t zelar/petclinic:${BUILD_NUMBER} .'
+	 sh 'docker build -t zelar/petclinic:${BUILD_NUMBER} .'
          sh 'docker tag zelar/petclinic:${BUILD_NUMBER} zelar/petclinic:latest'
 	 }
 	}
