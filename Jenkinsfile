@@ -25,7 +25,7 @@ pipeline {
         }*/
 	stage('Docker Build'){
          steps{
-	 sh 'docker build -t zelar/petclinic:latest .'
+	 sh 'docker build -t zelar/petclinic:latest'
 	 }
 	}
        /* stage('Docker Push'){
