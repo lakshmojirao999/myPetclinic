@@ -6,7 +6,7 @@ pipeline {
         }
     }
     stages {
-        stage('Build') {
+       /* stage('Build') {
             steps {
                 sh 'mvn -B -DskipTests clean package'
             }
@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh 'mvn test'
             }
-        }
+        }*/
         /*stage('Deploy'){
             steps {
                   
@@ -24,12 +24,11 @@ pipeline {
             }
         }*/
 	stage('Docker Build'){
-         agent { docker 'alpine' }
-	 steps{
+         steps{
 	 sh 'docker build -t zelar/petclinic:latest .'
 	 }
 	}
-        stage('Docker Push'){
+       /* stage('Docker Push'){
           agent { docker 'alpine' }
          steps{
 	  withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
@@ -37,10 +36,9 @@ pipeline {
 	    sh 'docker push zelar/petclinic:latest'		
          }
         }
-      }
+      }*/
       stage('Docker Run'){
-        agent { docker 'alpine' }
-       steps{
+        steps{
         sh 'docker run -p 8181:8080 zelar/petclinic'
        }
       }
