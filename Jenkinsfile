@@ -34,6 +34,7 @@ pipeline {
          sh 'docker tag zelar/petclinic:${BUILD_NUMBER} zelar/petclinic:latest'
 	 }
 	}
+}
        /* stage('Docker Push'){
           agent { docker 'alpine' }
          steps{
