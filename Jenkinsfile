@@ -1,6 +1,12 @@
 pipeline {
-    agent { dockerfile true }
+    agent {
+        docker { 
+            image 'node:7-alpine' 
+            label 'support_ubuntu_docker'
+             }
+    }
     stages {
+       agent { dockerfile true }
 	 stage('Docker Build'){
          steps{
          sh 'docker image build -t zelar/petclinic:${BUILD_NUMBER} .'
