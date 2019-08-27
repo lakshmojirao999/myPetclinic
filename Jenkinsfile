@@ -37,8 +37,7 @@ pipeline {
 	  withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
 	    sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
 	    sh 'docker push zelar/petclinic:latest'}*/
-		
-  stages {
+
     stage('Cloning Git') {
       steps {
         git 'https://github.com/lakshmojirao999/myPetclinic.git'
@@ -51,7 +50,6 @@ pipeline {
         }
       }
     }
-  }
       stage('Docker Run'){
         steps{
         sh 'docker run -p 8181:8080 zelar/petclinic'
