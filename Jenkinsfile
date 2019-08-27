@@ -1,8 +1,8 @@
 pipeline {
     agent { dockerfile true }
     stages {
-		 stage('Docker Build'){
-        agent dockerfile
+	 stage('Docker Build'){
+        agent any
          steps{
          sh 'docker build -t zelar/petclinic:${BUILD_NUMBER} .'
          sh 'docker tag zelar/petclinic:${BUILD_NUMBER} zelar/petclinic:latest'
