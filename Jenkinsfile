@@ -24,6 +24,11 @@ pipeline {
             }
         }*/
 	stage('Docker Build'){
+        agent {
+          docker {
+            image ' image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+}
          steps{
 	 sh 'docker build -t zelar/petclinic:${BUILD_NUMBER} .'
          sh 'docker tag zelar/petclinic:${BUILD_NUMBER} zelar/petclinic:latest'
