@@ -13,7 +13,8 @@ node {
 
            dockerImage.push('1')
 
-           dockerImage.run('-p 8484:8080')
+
+           dockerImage.run('-p 8584:8080')
        }
    }
 }
