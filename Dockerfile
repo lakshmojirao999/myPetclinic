@@ -22,10 +22,7 @@ RUN curl -jkSL -o /tmp/apache-tomcat.tar.gz http://archive.apache.org/dist/tomca
 # cleanup
 RUN apk del curl && \
     rm -rf /tmp/* /var/cache/apk/*
-FROM ubuntu:latest
-RUN apt-get update
-RUN apt-get install -y python python-pip wget
-RUN pip install Flask
+
 
 
 ADD ./target/*.war $CATALINA_HOME/webapps/
