@@ -3,7 +3,7 @@ node {
  checkout scm
  def dockerImage
    stage('Build image') {
-    dockerImage = docker.build("zelar/petclinic:latest")
+    dockerImage = docker.build("lavanyapatil/pet")
    }
    stage('Push image') {
        docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
