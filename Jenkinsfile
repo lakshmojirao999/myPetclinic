@@ -6,7 +6,7 @@ node {
     dockerImage = docker.build("lavanyapatil/pet")
    }
    stage('Push image') {
-       docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
+       docker.withRegistry('https://registry.hub.docker.com', 'docker') {
 
            dockerImage.push('1')
        }
