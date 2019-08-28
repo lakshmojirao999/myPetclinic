@@ -9,7 +9,7 @@ node {
        docker.withRegistry('https://registry.hub.docker.com', 'docker') {
 
            dockerImage.push('1')
-           dockerImage.run('-p 8181:8080')
+           dockerImage.run('-p 8484:8080')
        }
    }
 }
