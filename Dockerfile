@@ -25,7 +25,7 @@ RUN apk del curl && \
 
 
 
-ADD ./target/*.war $CATALINA_HOME/webapps/
+#ADD ./target/*.war $CATALINA_HOME/webapps/
 
 EXPOSE 8080
 
