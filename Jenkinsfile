@@ -9,6 +9,7 @@ node {
        docker.withRegistry('https://registry.hub.docker.com', 'docker') {
 
            dockerImage.push('1')
+         docker.image('lavanyapatil/pet:1').withRun('-p 8181:8080')
        }
    }
 }
