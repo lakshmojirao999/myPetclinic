@@ -7,7 +7,7 @@ node {
    }
    stage('Push image') {
        docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
-           dockerImage.push(zelar/pet:latest)
+           dockerImage.push('zelar/pet:latest')
        }
    }
 }
