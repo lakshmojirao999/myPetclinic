@@ -6,7 +6,7 @@ node {
     dockerImage = docker.build("zelar/petclinic:latest")
    }
    stage('Push image') {
-       docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
+       docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
            dockerImage.push()
        }
    }
