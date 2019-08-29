@@ -3,7 +3,8 @@ node {
  checkout scm
 stage('Kill'){
 sh 'var1=$(docker ps -q)'
-docker.kill(var1)
+sh 'docker container kill var1'
+
 }
  def dockerImage
  
