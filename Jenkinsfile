@@ -6,6 +6,7 @@ node {
       steps{
         sh "docker rmi $registry:$BUILD_NUMBER"
       }
+}
    stage('Build image') {
     dockerImage = docker.build("lakshmojirao999/petclinic")
 
