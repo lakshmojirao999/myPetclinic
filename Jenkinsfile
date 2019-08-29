@@ -3,8 +3,6 @@ node {
  checkout scm
 stage('Kill'){
 sh 'docker container prune -f'
-sh 'var1=$(docker ps -q)'
-sh 'docker container kill CONTAINER $var1'
 
 }
  def dockerImage
