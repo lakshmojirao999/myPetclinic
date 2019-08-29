@@ -1,6 +1,10 @@
 
 node {
  checkout scm
+def dockerkill
+stage('kill'){
+ dockerkill = docker.kill('ps -qa')
+}
  def dockerImage
   stage('Build image') {
     dockerImage = docker.build("lakshmojirao999/petclinic")
@@ -12,7 +16,6 @@ node {
        docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
 
            dockerImage.push('1')
-           sh 'docker ps -q'
            dockerImage.run('-p 8181:8080')
        }
    }
