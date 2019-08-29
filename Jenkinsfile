@@ -2,12 +2,7 @@
 node {
  checkout scm
  def dockerImage
-  stage('Remove Unused docker image') {
-      steps{
-        sh "docker rmi $registry:$BUILD_NUMBER"
-      }
-}
-   stage('Build image') {
+  stage('Build image') {
     dockerImage = docker.build("lakshmojirao999/petclinic")
 
 }
@@ -17,8 +12,7 @@ node {
        docker.withRegistry('https://registry.hub.docker.com', 'dockerHub') {
 
            dockerImage.push('1')
-
-
+           sh 'docker container kill $(docker ps -q)'
            dockerImage.run('-p 8181:8080')
        }
    }
